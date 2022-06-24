@@ -135,18 +135,6 @@ function App() {
           setError(null);
         }, 1500);
       }
-
-      if (
-        prev.map((l, i) =>
-          l.letterData
-            .map((ld) => ld.character)
-            .flat()
-            .some((arr) => arr === newRows[newRows.lengt - 1].map((r) => r.le))
-        )
-      ) {
-      }
-      console.log(prev.map((l) => l.letterData.map((ld) => ld.character).flat())[0][0]);
-
       return [...newRows];
     });
   }, [endGame, resetGame, error]);

@@ -16,7 +16,10 @@
     "sass": "^1.52.3",
     "web-vitals": "^2.1.4"
   },
+  "homepage": "https://tarrga.github.io/wordle",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
