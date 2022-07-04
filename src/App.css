@@ -32,11 +32,17 @@
 .table .cube.border-custom {
   border-color: #878a8b !important;
   transition: border-color 0s;
-  animation: zoom 0.1s linear;
+  animation: zoom 11.3s linear;
 }
 .table .cube.border-custom-two {
   border-color: #878a8b !important;
-  transition: border-color 0s linear 0s;
+  transition: border-color 0s;
+  animation: zoom 0.3s linear;
+}
+
+.table .cube.border-custom-no-animation {
+  border-color: #878a8b !important;
+  transition: border-color 0s;
 }
 .table .cube.grey,
 .table .cube.yellow,

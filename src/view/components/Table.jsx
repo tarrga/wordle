@@ -1,6 +1,6 @@
 import Cube from './Cube';
 
-function Table({ pastGuessesColored, currentGuess, pastGuesses }) {
+function Table({ pastGuessesColored, currentGuess }) {
   return (
     <div className='container table'>
       {pastGuessesColored &&

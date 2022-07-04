@@ -5,11 +5,16 @@ function Cube({ letter, color, ms }) {
   setTimeout(() => {
     setShow(true);
   }, ms * 300);
-  if (!show) {
-    return <div className={`cube border border-custom-two`}>{letter || ''}</div>;
+  if (!letter) {
+    return <div className={`cube border`}></div>;
   }
-
-  return <div className={`cube border border-custom-two ${color}`}>{letter || ''}</div>;
+  if (letter && !color) {
+    return <div className={`cube border border-custom-two `}>{letter}</div>;
+  }
+  if (color && !show) {
+    return <div className={`cube border border-custom-no-animation`}>{letter}</div>;
+  }
+  return <div className={`cube border ${color ? color : ''}`}>{letter}</div>;
 }
 
 export default Cube;
