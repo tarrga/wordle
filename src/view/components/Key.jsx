@@ -1,35 +1,25 @@
 import React from 'react';
 
-function Key({ letter, clickHandler, letters, lettersRandom }) {
-  let customClassP = null;
-  let customClassA = null;
-  let customClassW = null;
-  letters?.forEach((l, i) => {
-    if (!l.isDone) return;
-    customClassP = l.letterData.some((ld, i) => {
-      return customClassP
-        ? customClassP
-        : ld.character === lettersRandom[i].toUpperCase() && ld.character === letter.toUpperCase();
-    });
-
-    customClassA = l.letterData.some((ld, i) => {
-      return customClassA
-        ? customClassA
-        : lettersRandom.some(
-            (rl) =>
-              rl.toUpperCase() === ld.character.toUpperCase() && ld.character.toUpperCase() === letter.toUpperCase()
-          );
-    });
-
-    customClassW = l.letterData.some((ld, i) => {
-      return customClassW ? customClassW : ld.character.toUpperCase() === letter.toUpperCase();
+function Key({ clickHandler, randomWord, words, letter }) {
+  let customClass = null;
+  words?.forEach((word, i) => {
+    word.forEach((l, i) => {
+      if (l.letter.toLowerCase() === letter.toLowerCase()) {
+        if (
+          !customClass ||
+          (customClass === 'yellow' && l.color === 'green') ||
+          (customClass === 'grey' && l.color === 'yellow')
+        ) {
+          customClass = l.color;
+        }
+      }
     });
   });
+
   return (
     <div
       onClick={() => clickHandler(letter)}
-      className={`key mb-1 border rounded ${customClassP ? 'perfect' : ''} ${customClassA ? 'almost' : ''} ${
-        customClassW ? 'wrong' : ''
+      className={`key mb-1 border rounded ${customClass ? customClass : ''} 
       } ${letter === 'BACKSPACE' ? 'backspace' : ''} ${letter === 'ENTER' ? 'enter' : ''}`}
     >
       {letter}

@@ -1,36 +1,15 @@
-import React, { useEffect } from 'react';
 import { useState } from 'react';
 
-function Cube({ letter, isDone, position, animation, time, endGame }) {
-  const [timeElapsed, setTimeElapsed] = useState(false);
-  useEffect(() => {
-    setTimeElapsed(false);
-    if (!isDone) return;
-    const timer = setTimeout(() => {
-      setTimeElapsed(true);
-    }, 300 * time);
-    return () => clearTimeout(timer);
-  }, [setTimeElapsed, time, isDone]);
-  if (!timeElapsed) {
-    return (
-      <div
-        className={`cube border
-      ${letter ? 'border-custom' : ''}`}
-      >
-        {letter || ''}
-      </div>
-    );
+function Cube({ letter, color, ms }) {
+  const [show, setShow] = useState(false);
+  setTimeout(() => {
+    setShow(true);
+  }, ms * 300);
+  if (!show) {
+    return <div className={`cube border border-custom-two`}>{letter || ''}</div>;
   }
 
-  if (timeElapsed)
-    return (
-      <div
-        className={`cube border border-custom-two ${isDone ? (position ? position : 'wrong') : ''} 
-      ${letter && !isDone ? 'border-custom' : ''}`}
-      >
-        {letter || ''}
-      </div>
-    );
+  return <div className={`cube border border-custom-two ${color}`}>{letter || ''}</div>;
 }
 
 export default Cube;

@@ -1,5 +1,5 @@
 /* @import '~bootstrap/scss/bootstrap'; */
-@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@400;700;900&display=swap');
 
 .App {
   min-height: 100vh;
@@ -25,7 +25,7 @@
   justify-content: center;
   align-items: center;
   font-size: 36px;
-  font-weight: bold;
+  font-weight: 900;
   border-color: #d3d6da;
 }
 
@@ -38,24 +38,24 @@
   border-color: #878a8b !important;
   transition: border-color 0s linear 0s;
 }
-.table .cube.wrong,
-.table .cube.almost,
-.table .cube.perfect {
+.table .cube.grey,
+.table .cube.yellow,
+.table .cube.green {
   color: #fff;
   animation: flip 0.6s;
   transition: background-color 0s linear 0.3s, color 0s linear 0.3s, border-color 0s linear 0.3s;
 }
-.table .cube.wrong {
+.table .cube.grey {
   border: 1px solid #878a8b !important;
   background-color: #878a8b;
 }
 
-.table .cube.almost {
+.table .cube.yellow {
   border: 1px solid #c9b459 !important;
   background-color: #c9b459 !important;
 }
 
-.table .cube.perfect {
+.table .cube.green {
   border: 1px solid #6aaa65 !important;
   background-color: #6aaa65 !important;
 }
@@ -76,12 +76,14 @@
 .modal-inner {
   position: fixed;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 50px;
+  padding: 25px 50px;
   background-color: #fff;
   border-radius: 6px;
   font-size: 50px;
+  font-weight: 900;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
@@ -98,30 +100,40 @@
   cursor: pointer;
 }
 
+.enter,
+.backspace {
+  padding: 16px 10px;
+}
+
 .key:not(.enter):not(.backspace) {
   max-width: 46px;
 }
 
-.key.wrong {
+.key.grey {
   background-color: #878a8b;
   color: #fff;
   transition: all 0.1s 1.8s ease;
 }
 
-.key.almost {
+.key.yellow {
   color: #fff;
   background: #c9b459;
   transition: all 0.1s 1.8s ease;
 }
 
-.key.perfect {
+.key.green {
   color: #fff;
   background: #6aaa65;
   transition: all 0.1s 1.8s ease;
 }
 
-.modal-inner {
-  font-family: 'Lobster', cursive;
+.random-colors {
+  text-transform: uppercase;
+  letter-spacing: 16px;
+}
+.dark {
+  background-color: #121212;
+  color: #fff;
 }
 
 @keyframes zoom {

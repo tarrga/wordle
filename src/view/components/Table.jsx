@@ -1,26 +1,22 @@
 import Cube from './Cube';
 
-function Table({ letters, endGame }) {
+function Table({ pastGuessesColored, currentGuess, pastGuesses }) {
   return (
     <div className='container table'>
-      {letters.map((rel, i) =>
-        rel.letterData.map((cel, index) => {
-          if (!letters[i + 1]?.letterData?.isDone && rel.isDone) {
-            return (
-              <Cube
-                key={index}
-                animation='letter-animation'
-                letter={cel.character}
-                isDone={rel.isDone}
-                position={cel.position}
-                time={index}
-                endGame={endGame}
-              />
-            );
-          }
-          return <Cube key={index} letter={cel.character} isDone={rel.isDone} position={cel.position} />;
-        })
-      )}
+      {pastGuessesColored &&
+        pastGuessesColored.map((guess, i) => {
+          return guess.map((letterObj, i) => (
+            <Cube key={i} ms={i} letter={letterObj.letter.toUpperCase()} color={letterObj.color} />
+          ));
+        })}
+      {Array.from(currentGuess).map((letter, i) => (
+        <Cube key={i} letter={letter.toUpperCase()} />
+      ))}
+      {new Array(30 - pastGuessesColored.length * 5 - (currentGuess ? Array.from(currentGuess).length : 0))
+        .fill('')
+        .map((l, i) => (
+          <Cube key={i} letter='' />
+        ))}
     </div>
   );
 }
