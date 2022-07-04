@@ -74,7 +74,7 @@ function useWordle() {
       !state.endgame
     ) {
       if (state.currentGuess.length < 5) {
-        dispatch({ type: 'ADD_LETTER', payload: e.key ? e.key : e });
+        dispatch({ type: 'ADD_LETTER', payload: e.key ? e.key : e.toLowerCase() });
         return;
       }
     }
