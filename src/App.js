@@ -41,7 +41,7 @@ function App() {
   return (
     <div className='App bg-light d-flex justify-content-between flex-column'>
       <Navbar />
-      <Table currentGuess={currentGuess} pastGuessesColored={pastGuessesColored} />
+      <Table currentGuess={currentGuess} pastGuessesColored={pastGuessesColored} error={error} />
       <Keyboard
         addWord={addWord}
         addLetter={addLetter}
